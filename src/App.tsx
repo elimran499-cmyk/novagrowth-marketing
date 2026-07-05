@@ -9,6 +9,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import LegalHub from './components/legal/LegalHub';
 import PrivacyPolicy from './components/legal/PrivacyPolicy';
 import TermsOfService from './components/legal/TermsOfService';
 import Impressum from './components/legal/Impressum';
@@ -101,6 +102,14 @@ export default function App() {
       });
     };
   }, []);
+
+  if (path === '/legal') {
+    return (
+      <MotionConfig reducedMotion="user">
+        <LegalHub />
+      </MotionConfig>
+    );
+  }
 
   if (path === '/privacy') {
     return (
