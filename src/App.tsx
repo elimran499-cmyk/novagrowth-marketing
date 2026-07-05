@@ -7,6 +7,7 @@ import Services from './components/Services';
 import Pricing from './components/Pricing';
 import About from './components/About';
 import Contact from './components/Contact';
+import LegalSection from './components/LegalSection';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import LegalHub from './components/legal/LegalHub';
@@ -180,6 +181,9 @@ export default function App() {
             messagePreset={messagePreset}
             onClearSelectedPlan={handleClearPlan}
           />
+
+          {/* Legal & Policies */}
+          <LegalSection />
         </main>
 
         {/* Footer */}
