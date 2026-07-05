@@ -49,7 +49,12 @@
       "Bash(declare -f git)",
       "Bash(/usr/local/bin/git --version)",
       "Bash(sudo rm /usr/local/bin/git)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(env -u GIT_ASKPASS -u VSCODE_GIT_ASKPASS_NODE -u VSCODE_GIT_ASKPASS_MAIN -u VSCODE_GIT_ASKPASS_EXTRA_ARGS GIT_TERMINAL_PROMPT=0 timeout 15 git push origin main)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)"
     ]
   }
 }
