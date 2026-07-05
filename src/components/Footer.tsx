@@ -108,7 +108,6 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-600 gap-4">
           <p>© {currentYear} Monarchix Marketing Agency. All rights reserved.</p>
           <div className="flex space-x-4">
-            {/* TODO: point these to real legal pages before launch — a German business landing page requires a valid Impressum + privacy policy. */}
             <a href="/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
             <span>•</span>
             <a href="/terms" className="hover:text-slate-300 transition-colors">Terms of Service</a>

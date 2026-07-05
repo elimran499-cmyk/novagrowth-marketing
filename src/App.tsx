@@ -9,6 +9,9 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import PrivacyPolicy from './components/legal/PrivacyPolicy';
+import TermsOfService from './components/legal/TermsOfService';
+import Impressum from './components/legal/Impressum';
 
 type Theme = 'dark' | 'light';
 
@@ -37,9 +40,10 @@ export default function App() {
 
   const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
 
-  // Simple client-side 404 for unknown paths (SPA fallback serves this file).
-  const [notFound] = useState(
-    () => typeof window !== 'undefined' && window.location.pathname !== '/',
+  // Simple client-side routing for standalone legal pages; anything else
+  // that isn't "/" falls back to a 404 (SPA fallback serves this file).
+  const [path] = useState(() =>
+    typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') || '/' : '/',
   );
 
   // Handle plan selection from Pricing table
@@ -98,7 +102,31 @@ export default function App() {
     };
   }, []);
 
-  if (notFound) {
+  if (path === '/privacy') {
+    return (
+      <MotionConfig reducedMotion="user">
+        <PrivacyPolicy />
+      </MotionConfig>
+    );
+  }
+
+  if (path === '/terms') {
+    return (
+      <MotionConfig reducedMotion="user">
+        <TermsOfService />
+      </MotionConfig>
+    );
+  }
+
+  if (path === '/impressum') {
+    return (
+      <MotionConfig reducedMotion="user">
+        <Impressum />
+      </MotionConfig>
+    );
+  }
+
+  if (path !== '/') {
     return (
       <MotionConfig reducedMotion="user">
         <NotFound />
