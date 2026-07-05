@@ -33,7 +33,23 @@
       "Read(//Library/Developer/CommandLineTools/usr/bin/**)",
       "Bash(brew --version)",
       "Read(//Users/macbookpro/Downloads/**)",
-      "Bash(git this-is-not-a-real-subcommand-xyz123 *)"
+      "Bash(git this-is-not-a-real-subcommand-xyz123 *)",
+      "Bash(git -C Monarchix.eu remote -v)",
+      "Bash(git -C Monarchix.eu log --oneline -5)",
+      "Bash(git -C Monarchix.eu status)",
+      "Bash(git status *)",
+      "Bash(git symbolic-ref *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(GIT_PAGER=cat PAGER=cat git --no-pager log --oneline -5)",
+      "Bash(echo \"RC=$?\")",
+      "Bash(GIT_PAGER=cat PAGER=cat git --no-pager remote -v)",
+      "Bash(git --no-pager log --oneline -5)",
+      "Bash(git --no-pager remote -v)",
+      "Bash(command -V git)",
+      "Bash(declare -f git)",
+      "Bash(/usr/local/bin/git --version)",
+      "Bash(sudo rm /usr/local/bin/git)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
