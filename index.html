@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030712" />
+
+    <!-- Speed up webfont fetch (#12 perf) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Apply saved theme before first paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <title>Monarchix — Social Media Growth & SEO Agency</title>
+    <meta
+      name="description"
+      content="Monarchix is a digital marketing agency for small and medium businesses — Instagram, Facebook & YouTube growth plus local and website SEO that turns visibility into revenue."
+    />
+
+    <!-- Icons & PWA manifest (#15).
+         TODO: for pixel-perfect iOS/Android home-screen icons, export a 180x180
+         and 512x512 PNG from public/icon.svg and add them here; the SVG works
+         for browser tabs today. -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="mask-icon" href="/icon.svg" color="#f97316" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Monarchix — Social Media Growth & SEO Agency" />
+    <meta
+      property="og:description"
+      content="Instagram, Facebook & YouTube growth plus local and website SEO that turns visibility into revenue."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

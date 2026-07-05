@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Single typeface across the whole site — hierarchy comes from weight/size/spacing */
+  --font-sans: "Merriweather Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Merriweather Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Merriweather Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Dark theme is the default (values below). The light theme overrides these
+     same variables under :root[data-theme="light"], so component markup never
+     needs to change — Tailwind v4 utilities resolve colors through these vars. */
+  --color-navy-950: #030712;
+  --color-navy-900: #0a0f1d;
+  --color-navy-800: #111827;
+  --color-navy-700: #1f2937;
+
+  --color-brand: #f97316;
+  --color-brand-light: #fb923c;
+  --color-brand-dark: #ea580c;
+  --color-emerald-accent: #10b981;
+
+  /* Primary heading / body text ("ink"): white on dark, near-black on light. */
+  --color-ink: #ffffff;
+}
+
+/* ---------------------------------------------------------------------------
+   LIGHT THEME
+   Re-maps the surface/text ramp and softens the deep accent tints so the
+   existing dark-first classes read correctly on a white background.
+   Brand orange + white-on-accent buttons are intentionally left untouched.
+--------------------------------------------------------------------------- */
+:root[data-theme="light"] {
+  /* Page & section backgrounds */
+  --color-navy-950: #ffffff;
+  --color-navy-900: #f8fafc;
+  --color-navy-800: #f1f5f9;
+  --color-navy-700: #e2e8f0;
+
+  /* Surface / border / text ramp (inverted from the dark scale) */
+  --color-slate-950: #ffffff;
+  --color-slate-900: #f1f5f9;
+  --color-slate-800: #e2e8f0;
+  --color-slate-700: #cbd5e1;
+  --color-slate-600: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-400: #475569;
+  --color-slate-300: #334155;
+  --color-slate-200: #1e293b;
+  --color-slate-100: #0f172a;
+
+  /* Headings / body ink */
+  --color-ink: #0f172a;
+
+  /* Accent "pill" tints: deep-950/900 shades become pale so labels stay legible */
+  --color-emerald-950: #ecfdf5;
+  --color-emerald-900: #a7f3d0;
+  --color-orange-950: #fff7ed;
+  --color-orange-900: #fed7aa;
+
+  /* Accent text/icons need more weight on white for AA contrast */
+  --color-emerald-400: #059669;
+  --color-orange-400: #ea580c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-navy-950);
+  color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-700);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand);
+}
+
+/* ---------------------------------------------------------------------------
+   ACCESSIBILITY (#10)
+   Clear, consistent keyboard-focus ring on every interactive element.
+--------------------------------------------------------------------------- */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Screen-reader-only helper (visually hidden, still announced) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   REDUCED MOTION (#11)
+   Respect users who ask for less motion: neutralise CSS animations,
+   transitions, and smooth-scroll. (Framer Motion is handled at the app root
+   via <MotionConfig reducedMotion="user">.)
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
