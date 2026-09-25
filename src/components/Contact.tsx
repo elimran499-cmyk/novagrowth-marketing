@@ -146,7 +146,7 @@ export default function Contact({ selectedPlanName, messagePreset, onClearSelect
               </div>
 
               <a
-                href="https://wa.me/447414662070"
+                href="https://wa.me/447832486269"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center space-x-4 p-4 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 transition-colors cursor-pointer group"
@@ -156,7 +156,7 @@ export default function Contact({ selectedPlanName, messagePreset, onClearSelect
                 </div>
                 <div>
                   <span className="text-[10px] text-orange-400 font-mono tracking-wider block uppercase font-bold">WHATSAPP SUPPORT</span>
-                  <span className="text-sm font-sans font-semibold text-ink group-hover:text-orange-300 transition-colors">+44 7414 662070</span>
+                  <span className="text-sm font-sans font-semibold text-ink group-hover:text-orange-300 transition-colors">+44 7832 486269</span>
                 </div>
               </a>
 
